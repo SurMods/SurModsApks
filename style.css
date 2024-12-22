@@ -22,6 +22,12 @@ body {
     margin: 1%;
     color: #161616;
 }
+.Recomendado {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
 .Spotify {
     margin-top: 50px;
     margin-left: 50px;
@@ -40,6 +46,98 @@ body {
     width: 100px;
 }
 .SpotifyDownload {
+    text-decoration: none;
+    color: black;
+    margin-top: 10px;
+    font-family: sans-serif;
+}
+.FNAF {
+    margin-top: 50px;
+    margin-left: 50px;
+    height: 150px;
+    width: 150px;
+    background-color: rgb(221, 221, 221);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid rgb(0, 0, 0);
+}
+.FNAFImg {
+    height: 100px;
+    width: 100px;
+}
+.FNAFDownload {
+    text-decoration: none;
+    color: black;
+    margin-top: 10px;
+    font-family: sans-serif;
+}
+.FNAF2 {
+    margin-top: 50px;
+    margin-left: 50px;
+    height: 150px;
+    width: 150px;
+    background-color: rgb(221, 221, 221);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid rgb(0, 0, 0);
+}
+.FNAF2Img {
+    height: 100px;
+    width: 100px;
+}
+.FNAF2Download {
+    text-decoration: none;
+    color: black;
+    margin-top: 10px;
+    font-family: sans-serif;
+}
+.FNAF3 {
+    margin-top: 50px;
+    margin-left: 50px;
+    height: 150px;
+    width: 150px;
+    background-color: rgb(221, 221, 221);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid rgb(0, 0, 0);
+}
+.FNAF3Img {
+    height: 100px;
+    width: 100px;
+}
+.FNAF3Download {
+    text-decoration: none;
+    color: black;
+    margin-top: 10px;
+    font-family: sans-serif;
+}
+.FNAF4 {
+    margin-top: 50px;
+    margin-left: 50px;
+    height: 150px;
+    width: 150px;
+    background-color: rgb(221, 221, 221);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid rgb(0, 0, 0);
+}
+.FNAF4Img {
+    height: 100px;
+    width: 100px;
+}
+.FNAF4Download {
     text-decoration: none;
     color: black;
     margin-top: 10px;
