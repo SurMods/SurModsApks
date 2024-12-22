@@ -1,11 +1,11 @@
 body {
-    background-color: rgb(128, 128, 128);
+    background-color: #ededed;
     color: rgb(0, 0, 0);
     margin: 0;
 }
 .Title {
-    background: rgba(122, 123, 129, 2);
-    color: #0fe;
+    background: rgb(177, 177, 177);
+    color: rgb(0, 255, 255);
     font-family: sans-serif;
     text-align: center;
     line-height: 4;
@@ -14,25 +14,26 @@ body {
     margin-bottom: 35px;
 }
 .P1 {
+    letter-spacing: 1px;
     font-family: sans-serif;
     font-size: 18px;
     font-weight: 100;
-    font-style: oblique;
     text-align: justify;
-    margin: 8px;
+    margin: 1%;
+    color: #161616;
 }
 .Spotify {
     margin-top: 50px;
     margin-left: 50px;
     height: 150px;
     width: 150px;
-    background-color: white;
+    background-color: rgb(221, 221, 221);
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid rgb(0, 0, 0);
+    border-top: 2px solid rgb(0, 0, 0);
 }
 .SpotifyImg {
     height: 100px;
@@ -42,4 +43,5 @@ body {
     text-decoration: none;
     color: black;
     margin-top: 10px;
+    font-family: sans-serif;
 }
