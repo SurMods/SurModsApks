@@ -37,44 +37,35 @@ const apks = [
     }
 ];
 
-// Agrupar APKs por categoría (soporta múltiples categorías por juego)
-const categorias = {};
-
-apks.forEach(apk => {
-    apk.categoria.forEach(cat => {
-        if (!categorias[cat]) {
-            categorias[cat] = [];
-        }
-        categorias[cat].push(apk);
-    });
-});
-
 // Crear HTML dinámico
 const container = document.getElementById("apk-container");
 
 Object.entries(categorias).forEach(([categoria, lista]) => {
-    const section = document.createElement("section");
-    section.classList.add("categoria-section");
+    // Solo agregar categorías que tengan al menos un juego
+    if (lista.length > 0) {
+        const section = document.createElement("section");
+        section.classList.add("categoria-section");
 
-    const title = document.createElement("h3");
-    title.classList.add("categoria-title");
-    title.textContent = categoria;
-    section.appendChild(title);
+        const title = document.createElement("h3");
+        title.classList.add("categoria-title");
+        title.textContent = categoria;
+        section.appendChild(title);
 
-    const listaContainer = document.createElement("div");
-    listaContainer.classList.add("Recomendado");
+        const listaContainer = document.createElement("div");
+        listaContainer.classList.add("Recomendado");
 
-    lista.forEach(apk => {
-        const card = document.createElement("div");
-        card.className = "apk-card";
+        lista.forEach(apk => {
+            const card = document.createElement("div");
+            card.className = "apk-card";
 
-        card.innerHTML = `
-            <img src="${apk.imagen}" alt="${apk.nombre}" class="apk-img">
-            <a href="${apk.enlace}" class="apk-download">${apk.nombre}</a>
-        `;
-        listaContainer.appendChild(card);
-    });
+            card.innerHTML = `
+                <img src="${apk.imagen}" alt="${apk.nombre}" class="apk-img">
+                <a href="${apk.enlace}" class="apk-download">${apk.nombre}</a>
+            `;
+            listaContainer.appendChild(card);
+        });
 
-    section.appendChild(listaContainer);
-    container.appendChild(section);
+        section.appendChild(listaContainer);
+        container.appendChild(section);
+    }
 });
