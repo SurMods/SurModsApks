@@ -9,31 +9,31 @@ const apks = [
         nombre: "FNAF",
         imagen: "https://play-lh.googleusercontent.com/Gfcc9CzKdfEk3AVt4Zz_2B4OIxWwZElsSQVeYWN5a9ik0l5jQKaAxi-0pAb_F6IszqAA=s75-rw",
         enlace: "https://cuty.io/FNAFSurMods",
-        categoria: ["Juegos", "Terror"]
+        categoria: ["Juegos", "Terror", "Premium"]
     },
     {
         nombre: "FNAF 2",
         imagen: "https://play-lh.googleusercontent.com/GYcyLlHWoZumcal0WmDJJo2rCFyl3Y0mwXm0zaD-C9gC0PJGQMhzOKHfDUVlqSDlag=w240-h480-rw",
         enlace: "https://cuty.io/FNAF2SurfMod",
-        categoria: ["Juegos", "Terror"]
+        categoria: ["Juegos, Terror, Premium"]
     },
     {
         nombre: "FNAF 3",
         imagen: "https://play-lh.googleusercontent.com/_HtZGydRSlnEhF6Lf6uVmtFRBpeS3kVra8qFj53C2LNhALNQNedFY9vMpDhlo_CYHpk=s75-rw",
         enlace: "https://cuty.io/FNAF3SurfMod",
-        categoria: ["Juegos"]
+        categoria: ["Juegos, Premium, Terror"]
     },
     {
         nombre: "FNAF 4",
         imagen: "https://lh3.googleusercontent.com/H3DMppPpyUvfQmGi8-v6rXe5quaq34lOlfwfokZEweu0-iMF_x-0P-kDAiUp2tNoJfQ=s75-rw",
         enlace: "https://cuty.io/FNAF4SurfMod",
-        categoria: ["Juegos"]
+        categoria: ["Juegos, Premium"]
     },
     {
         nombre: "Geometry Dash",
         imagen: "https://yt3.googleusercontent.com/ytc/AOPolaQc_MbnxXAXKac3gfF9pavK-CvFdpZTG3_4XjBN=s900-c-k-c0x00ffffff-no-rj",
         enlace: "https://cuty.io/YouTubeVanced",
-        categoria: ["Juegos", "Plataformas"]
+        categoria: ["Juegos", "Premium"]
     }
 ];
 
