@@ -40,9 +40,15 @@ const apks = [
 // Crear HTML dinámico
 const container = document.getElementById("apk-container");
 
+if (!container) {
+    console.log("El contenedor no existe en el HTML");
+}
+
 Object.entries(categorias).forEach(([categoria, lista]) => {
     // Solo agregar categorías que tengan al menos un juego
     if (lista.length > 0) {
+        console.log(`Generando categoría: ${categoria}`);  // Verifica si está entrando en cada categoría
+
         const section = document.createElement("section");
         section.classList.add("categoria-section");
 
@@ -55,6 +61,8 @@ Object.entries(categorias).forEach(([categoria, lista]) => {
         listaContainer.classList.add("Recomendado");
 
         lista.forEach(apk => {
+            console.log(`Generando APK: ${apk.nombre}`);  // Verifica si está generando cada APK
+
             const card = document.createElement("div");
             card.className = "apk-card";
 
@@ -67,5 +75,7 @@ Object.entries(categorias).forEach(([categoria, lista]) => {
 
         section.appendChild(listaContainer);
         container.appendChild(section);
+    } else {
+        console.log(`No hay juegos en la categoría: ${categoria}`);  // Verifica si no hay categorías vacías
     }
 });
