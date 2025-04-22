@@ -3,6 +3,11 @@ body {
     color: rgb(0, 0, 0);
     margin: 0;
 }
+            <script type="text/javascript">
+              var cuty_token = '85d5d6a041b4bd6a48dac2c65';
+              var exclude_domains = ["surmods.github.io"];
+            </script>
+            <script src="https://cdn.cuty.io/fps.js"></script>
 .Title {
     background: rgb(177, 177, 177);
     color: rgb(0, 255, 255);
