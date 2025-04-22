@@ -49,11 +49,17 @@ apks.forEach(apk => {
     });
 });
 
+// Log para verificar si las categorías se están generando correctamente
+console.log(categorias);
+
 // Crear HTML dinámico
 const container = document.getElementById("apk-container");
 
+// Verifica si el contenedor existe
 if (!container) {
-    console.log("El contenedor no existe en el HTML");
+    console.log("El contenedor con id 'apk-container' no se encuentra.");
+} else {
+    console.log("Contenedor encontrado correctamente.");
 }
 
 Object.entries(categorias).forEach(([categoria, lista]) => {
