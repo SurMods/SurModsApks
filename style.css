@@ -111,4 +111,10 @@ body {
         border-bottom: 2px solid #00c3a8;
         padding-bottom: 5px;
     }
+
+    /* Este bloque va dentro de @media */
+    #apk-container {
+        display: block;
+        visibility: visible;
+    }
 }
