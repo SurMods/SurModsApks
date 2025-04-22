@@ -33,7 +33,13 @@ const apks = [
         nombre: "YouTube Vanced",
         imagen: "https://yt3.googleusercontent.com/ytc/AOPolaQc_MbnxXAXKac3gfF9pavK-CvFdpZTG3_4XjBN=s900-c-k-c0x00ffffff-no-rj",
         enlace: "https://cuty.io/YouTubeVanced",
-        categoria: "Moddes", "Juegos"
+        categoria: "Moddes"
+    },
+    {
+        nombre: "YouTube Vanced",
+        imagen: "https://yt3.googleusercontent.com/ytc/AOPolaQc_MbnxXAXKac3gfF9pavK-CvFdpZTG3_4XjBN=s900-c-k-c0x00ffffff-no-rj",
+        enlace: "https://cuty.io/YouTubeVanced",
+        categoria: "Juegos"
     }
 ];
 
