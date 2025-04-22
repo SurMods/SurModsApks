@@ -1,9 +1,9 @@
 const apks = [
     {
-        nombre: "Spotify Premium",
+        nombre: "Spotify Premium Mod",
         imagen: "https://m.media-amazon.com/images/I/51rttY7a+9L.png",
         enlace: "https://cuty.io/SurfMods",
-        categoria: ["Premium"]
+        categoria: ["Modded"]
     },
     {
         nombre: "FNAF",
@@ -27,13 +27,13 @@ const apks = [
         nombre: "FNAF 4",
         imagen: "https://lh3.googleusercontent.com/H3DMppPpyUvfQmGi8-v6rXe5quaq34lOlfwfokZEweu0-iMF_x-0P-kDAiUp2tNoJfQ=s75-rw",
         enlace: "https://cuty.io/FNAF4SurfMod",
-        categoria: ["Juegos", "Premium"]
+        categoria: ["Juegos", "Premium", "Terror"]
     },
     {
-        nombre: "Geometry Dash",
+        nombre: "Geometry Dash Mod",
         imagen: "https://yt3.googleusercontent.com/ytc/AOPolaQc_MbnxXAXKac3gfF9pavK-CvFdpZTG3_4XjBN=s900-c-k-c0x00ffffff-no-rj",
         enlace: "https://cuty.io/YouTubeVanced",
-        categoria: ["Juegos", "Premium"]
+        categoria: ["Juegos", "Modded"]
     }
 ];
 
