@@ -2,149 +2,193 @@ body {
     background-color: #ededed;
     color: rgb(0, 0, 0);
     margin: 0;
+    font-family: sans-serif;
 }
-            <script type="text/javascript">
-              var cuty_token = '85d5d6a041b4bd6a48dac2c65';
-              var exclude_domains = ["surmods.github.io"];
-            </script>
-            <script src="https://cdn.cuty.io/fps.js"></script>
+
 .Title {
     background: rgb(177, 177, 177);
     color: rgb(0, 255, 255);
-    font-family: sans-serif;
     text-align: center;
     line-height: 4;
     letter-spacing: 2px;
     margin-top: 15px;
     margin-bottom: 35px;
 }
+
 .P1 {
     letter-spacing: 1px;
-    font-family: sans-serif;
     font-size: 18px;
     font-weight: 100;
     text-align: justify;
     margin: 1%;
     color: #161616;
 }
+
+.categoria-section {
+    margin-bottom: 50px;
+}
+
+.categoria-title {
+    text-align: left;
+    font-size: 24px;
+    margin: 20px;
+    color: #00aaa2;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+}
+
 .Recomendado {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
+    padding: 10px 20px;
 }
-.Spotify {
-    margin-top: 50px;
-    margin-left: 50px;
+
+.apk-card {
+    background-color: rgb(221, 221, 221);
     height: 150px;
     width: 150px;
-    background-color: rgb(221, 221, 221);
-    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-top: 2px solid rgb(0, 0, 0);
+    border-top: 2px solid black;
+    text-align: center;
+    transition: transform 0.2s;
 }
-.SpotifyImg {
+
+.apk-card:hover {
+    transform: scale(1.05);
+}
+
+.apk-img {
     height: 100px;
     width: 100px;
 }
-.SpotifyDownload {
+
+.apk-download {
     text-decoration: none;
     color: black;
     margin-top: 10px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+    .apk-card {
+        width: 100px;
+        height: auto;
+        padding: 10px;
+    }
+
+    .apk-img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .apk-download {
+        font-size: 14px;
+    }
+
+    .categoria-title {
+        text-align: center;
+        font-size: 20px;
+    }
+}
+body {
+    background-color: #ededed;
+    color: rgb(0, 0, 0);
+    margin: 0;
     font-family: sans-serif;
 }
-.FNAF {
-    margin-top: 50px;
-    margin-left: 50px;
+
+.Title {
+    background: rgb(177, 177, 177);
+    color: rgb(0, 255, 255);
+    text-align: center;
+    line-height: 4;
+    letter-spacing: 2px;
+    margin-top: 15px;
+    margin-bottom: 35px;
+}
+
+.P1 {
+    letter-spacing: 1px;
+    font-size: 18px;
+    font-weight: 100;
+    text-align: justify;
+    margin: 1%;
+    color: #161616;
+}
+
+.categoria-section {
+    margin-bottom: 50px;
+}
+
+.categoria-title {
+    text-align: left;
+    font-size: 24px;
+    margin: 20px;
+    color: #00aaa2;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.Recomendado {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 20px;
+}
+
+.apk-card {
+    background-color: rgb(221, 221, 221);
     height: 150px;
     width: 150px;
-    background-color: rgb(221, 221, 221);
-    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-top: 2px solid rgb(0, 0, 0);
-}
-.FNAFImg {
-    height: 100px;
-    width: 100px;
-}
-.FNAFDownload {
-    text-decoration: none;
-    color: black;
-    margin-top: 10px;
-    font-family: sans-serif;
-}
-.FNAF2 {
-    margin-top: 50px;
-    margin-left: 50px;
-    height: 150px;
-    width: 150px;
-    background-color: rgb(221, 221, 221);
+    border-top: 2px solid black;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-top: 2px solid rgb(0, 0, 0);
+    transition: transform 0.2s;
 }
-.FNAF2Img {
+
+.apk-card:hover {
+    transform: scale(1.05);
+}
+
+.apk-img {
     height: 100px;
     width: 100px;
 }
-.FNAF2Download {
+
+.apk-download {
     text-decoration: none;
     color: black;
     margin-top: 10px;
-    font-family: sans-serif;
+    font-weight: bold;
 }
-.FNAF3 {
-    margin-top: 50px;
-    margin-left: 50px;
-    height: 150px;
-    width: 150px;
-    background-color: rgb(221, 221, 221);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-top: 2px solid rgb(0, 0, 0);
-}
-.FNAF3Img {
-    height: 100px;
-    width: 100px;
-}
-.FNAF3Download {
-    text-decoration: none;
-    color: black;
-    margin-top: 10px;
-    font-family: sans-serif;
-}
-.FNAF4 {
-    margin-top: 50px;
-    margin-left: 50px;
-    height: 150px;
-    width: 150px;
-    background-color: rgb(221, 221, 221);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-top: 2px solid rgb(0, 0, 0);
-}
-.FNAF4Img {
-    height: 100px;
-    width: 100px;
-}
-.FNAF4Download {
-    text-decoration: none;
-    color: black;
-    margin-top: 10px;
-    font-family: sans-serif;
+
+@media screen and (max-width: 600px) {
+    .apk-card {
+        width: 100px;
+        height: auto;
+        padding: 10px;
+    }
+
+    .apk-img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .apk-download {
+        font-size: 14px;
+    }
+
+    .categoria-title {
+        text-align: center;
+        font-size: 20px;
+    }
 }
