@@ -42,9 +42,10 @@ body {
 
 .Recomendado {
     display: flex;
-    justify-content: flex-start; /* Alineamos los elementos a la izquierda */
-    gap: 25px;
     flex-wrap: wrap;
+    justify-content: flex-start; /* Alineamos los elementos a la izquierda */
+    gap: 20px; /* Agregamos espacio entre los juegos */
+    max-width: 100%; /* Aseguramos que el contenedor no se quede pequeño */
 }
 
 .apk-card {
