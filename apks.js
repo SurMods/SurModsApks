@@ -37,6 +37,18 @@ const apks = [
     }
 ];
 
+// Agrupar juegos por categorías
+const categorias = {};
+
+apks.forEach(apk => {
+    apk.categoria.forEach(c => {
+        if (!categorias[c]) {
+            categorias[c] = [];
+        }
+        categorias[c].push(apk);
+    });
+});
+
 // Crear HTML dinámico
 const container = document.getElementById("apk-container");
 
