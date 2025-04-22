@@ -31,9 +31,9 @@ const apks = [
     },
     {
         nombre: "Geometry Dash Mod",
-        imagen: "https://yt3.googleusercontent.com/ytc/AOPolaQc_MbnxXAXKac3gfF9pavK-CvFdpZTG3_4XjBN=s900-c-k-c0x00ffffff-no-rj",
-        enlace: "https://cuty.io/YouTubeVanced",
-        categoria: ["Juegos", "Modded"]
+        imagen: "https://imagekit.io/tools/asset-public-link?detail=%7B%22name%22%3A%22Geometry_Dash_Icon.svg%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%2C%22signedurl_expire%22%3A%222028-04-21T20%3A35%3A38.525Z%22%2C%22signedUrl%22%3A%22https%3A%2F%2Fmedia-hosting.imagekit.io%2F765d4fe8138a42cb%2FGeometry_Dash_Icon.svg%3FExpires%3D1839962139%26Key-Pair-Id%3DK2ZIVPTIP2VGHC%26Signature%3DuNtG9NztvPRMBT2PL3UYyJlUCvFzXK7nxQUVCTjU~tI2EOd5peGlpjgcJKbqZEcENi-id6w0~f6Q6aOqShQV1TGdrG-JtG5LH~SHDCdw2tbYihQhDjy4n9smkM0zdPsIVBfHPoX0zaWauVTiLvW2HlFm0s72AHUaxxOCSjDENgWrGJNUoXwg0dUs6~jsfYjjxDPZDkyZr2ZIB4ZLUNIdsUgF3I8LwHelBnjDW7zEnm4-B~AOIKHKWf~x-tOT4ktG~b3ckSXSbHO0TrcWWdfsDqZ6BAib4Frc2v7Ss8cwPzEhIsVUStFVO5DdAKJIi2pauRolW47LwTWRO2~xvpudcA__%22%7D",
+        enlace: "https://cuty.io/SurModsGeo",
+        categoria: ["Juegos", "Premium"]
     }
 ];
 
