@@ -1,82 +1,93 @@
 body {
-    background-color: #ededed;
-    color: rgb(0, 0, 0);
+    background-color: #f2f2f2;
+    color: #333;
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .Title {
-    background: rgb(177, 177, 177);
-    color: rgb(0, 255, 255);
+    background: linear-gradient(90deg, #00d4ff, #00c3a8);
+    color: white;
     text-align: center;
-    line-height: 4;
+    padding: 30px 10px;
+    font-size: 32px;
     letter-spacing: 2px;
-    margin-top: 15px;
-    margin-bottom: 35px;
+    margin: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .P1 {
-    letter-spacing: 1px;
+    text-align: center;
     font-size: 18px;
-    font-weight: 100;
-    text-align: justify;
-    margin: 1%;
-    color: #161616;
+    font-weight: 300;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #444;
 }
 
 .categoria-section {
-    margin-bottom: 50px;
+    margin-bottom: 60px;
+    padding: 0 20px;
 }
 
 .categoria-title {
-    text-align: left;
-    font-size: 24px;
-    margin: 20px;
-    color: #00aaa2;
-    border-bottom: 2px solid #ccc;
-    padding-bottom: 5px;
+    font-size: 26px;
+    margin: 30px 0 15px 10px;
+    color: #00a0a0;
+    border-left: 5px solid #00d4ff;
+    padding-left: 10px;
 }
 
 .Recomendado {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
-    padding: 10px 20px;
+    gap: 25px;
 }
 
 .apk-card {
-    background-color: rgb(221, 221, 221);
-    height: 150px;
-    width: 150px;
+    background-color: #fff;
+    width: 160px;
+    height: 210px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    border-top: 2px solid black;
-    text-align: center;
-    transition: transform 0.2s;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .apk-card:hover {
-    transform: scale(1.05);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .apk-img {
-    height: 100px;
     width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 12px;
 }
 
 .apk-download {
     text-decoration: none;
-    color: black;
-    margin-top: 10px;
+    color: #007777;
     font-weight: bold;
+    text-align: center;
+    font-size: 15px;
+    transition: color 0.2s ease;
+}
+
+.apk-download:hover {
+    color: #00b3b3;
 }
 
 @media screen and (max-width: 600px) {
     .apk-card {
-        width: 100px;
+        width: 120px;
         height: auto;
         padding: 10px;
     }
@@ -91,104 +102,11 @@ body {
     }
 
     .categoria-title {
+        font-size: 22px;
         text-align: center;
-        font-size: 20px;
-    }
-}
-body {
-    background-color: #ededed;
-    color: rgb(0, 0, 0);
-    margin: 0;
-    font-family: sans-serif;
-}
-
-.Title {
-    background: rgb(177, 177, 177);
-    color: rgb(0, 255, 255);
-    text-align: center;
-    line-height: 4;
-    letter-spacing: 2px;
-    margin-top: 15px;
-    margin-bottom: 35px;
-}
-
-.P1 {
-    letter-spacing: 1px;
-    font-size: 18px;
-    font-weight: 100;
-    text-align: justify;
-    margin: 1%;
-    color: #161616;
-}
-
-.categoria-section {
-    margin-bottom: 50px;
-}
-
-.categoria-title {
-    text-align: left;
-    font-size: 24px;
-    margin: 20px;
-    color: #00aaa2;
-    border-bottom: 2px solid #ccc;
-    padding-bottom: 5px;
-}
-
-.Recomendado {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 10px 20px;
-}
-
-.apk-card {
-    background-color: rgb(221, 221, 221);
-    height: 150px;
-    width: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-top: 2px solid black;
-    text-align: center;
-    transition: transform 0.2s;
-}
-
-.apk-card:hover {
-    transform: scale(1.05);
-}
-
-.apk-img {
-    height: 100px;
-    width: 100px;
-}
-
-.apk-download {
-    text-decoration: none;
-    color: black;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-@media screen and (max-width: 600px) {
-    .apk-card {
-        width: 100px;
-        height: auto;
-        padding: 10px;
-    }
-
-    .apk-img {
-        width: 80px;
-        height: 80px;
-    }
-
-    .apk-download {
-        font-size: 14px;
-    }
-
-    .categoria-title {
-        text-align: center;
-        font-size: 20px;
+        margin-left: 0;
+        border-left: none;
+        border-bottom: 2px solid #00c3a8;
+        padding-bottom: 5px;
     }
 }
