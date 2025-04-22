@@ -15,19 +15,19 @@ const apks = [
         nombre: "FNAF 2",
         imagen: "https://play-lh.googleusercontent.com/GYcyLlHWoZumcal0WmDJJo2rCFyl3Y0mwXm0zaD-C9gC0PJGQMhzOKHfDUVlqSDlag=w240-h480-rw",
         enlace: "https://cuty.io/FNAF2SurfMod",
-        categoria: ["Juegos, Terror, Premium"]
+        categoria: ["Juegos", "Terror", "Premium"]
     },
     {
         nombre: "FNAF 3",
         imagen: "https://play-lh.googleusercontent.com/_HtZGydRSlnEhF6Lf6uVmtFRBpeS3kVra8qFj53C2LNhALNQNedFY9vMpDhlo_CYHpk=s75-rw",
         enlace: "https://cuty.io/FNAF3SurfMod",
-        categoria: ["Juegos, Premium, Terror"]
+        categoria: ["Juegos", "Premium", "Terror"]
     },
     {
         nombre: "FNAF 4",
         imagen: "https://lh3.googleusercontent.com/H3DMppPpyUvfQmGi8-v6rXe5quaq34lOlfwfokZEweu0-iMF_x-0P-kDAiUp2tNoJfQ=s75-rw",
         enlace: "https://cuty.io/FNAF4SurfMod",
-        categoria: ["Juegos, Premium"]
+        categoria: ["Juegos", "Premium"]
     },
     {
         nombre: "Geometry Dash",
