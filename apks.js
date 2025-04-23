@@ -45,7 +45,7 @@ const apks = [
         nombre: "Youtube Life",
         imagen: "https://tse4.mm.bing.net/th?id=OIP.ydzwj7k3t-VB53BVEEwn7wAAAA&pid=Api&P=0&h=180",
         enlace: "https://cuty.io/YouTubeLife",
-        categoria:  ["Premium", "Juegos"]
+        categoria:  ["Juegos", "Premium"]
     }
 ];
 
