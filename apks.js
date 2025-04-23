@@ -37,7 +37,7 @@ const apks = [
     },
     {
         nombre: "Incredibox",
-        imagen: "https://image.winudf.com/v2/image1/Y29tLnNvZmFyc29nb29kLmluY3JlZGlib3guY25fMTY2Mjg3NDUwOV8wNDA/icon.png?w=100&fakeurl=1.imagekit.io%2F765d4fe8138a42cb%2FGeometry_Dash_Icon.svg%3FExpires%3D1839962139%26Key-Pair-Id%3DK2ZIVPTIP2VGHC%26Signature%3DuNtG9NztvPRMBT2PL3UYyJlUCvFzXK7nxQUVCTjU~tI2EOd5peGlpjgcJKbqZEcENi-id6w0~f6Q6aOqShQV1TGdrG-JtG5LH~SHDCdw2tbYihQhDjy4n9smkM0zdPsIVBfHPoX0zaWauVTiLvW2HlFm0s72AHUaxxOCSjDENgWrGJNUoXwg0dUs6~jsfYjjxDPZDkyZr2ZIB4ZLUNIdsUgF3I8LwHelBnjDW7zEnm4-B~AOIKHKWf~x-tOT4ktG~b3ckSXSbHO0TrcWWdfsDqZ6BAib4Frc2v7Ss8cwPzEhIsVUStFVO5DdAKJIi2pauRolW47LwTWRO2~xvpudcA__%22%7D",
+        imagen: "https://image.winudf.com/v2/image1/Y29tLnNvZmFyc29nb29kLmluY3JlZGlib3guY25fMTY2Mjg3NDUwOV8wNDA/icon.png?w=100&fakeurl=1",
         enlace: "https://cuty.io/12Incredibox",
         categoria: ["Juegos", "Premium"]
     }
