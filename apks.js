@@ -40,6 +40,12 @@ const apks = [
         imagen: "https://image.winudf.com/v2/image1/Y29tLnNvZmFyc29nb29kLmluY3JlZGlib3guY25fMTY2Mjg3NDUwOV8wNDA/icon.png?w=100&fakeurl=1",
         enlace: "https://cuty.io/12Incredibox",
         categoria: ["Juegos", "Premium"]
+    },
+    {
+        nombre: "Youtube Life",
+        imagen: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExMVFhUXGB0YGBgYFx8YHRgfHR4dIB0dGhcbHiggHxolHRcYIjEhJykrLi4uFx8zODMtNygtLisBCgoKDg0OGxAQGy0lICUtLS0tLS0tLS0tLS8tLS0tLS0tLS0tLS8tLS0tLS0tLS0tLS0tLS8tLS0tLS0tLS0tLf/AABEIAOEA4QMBEQACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAFBgMEAAIHAQj/xABNEAACAQIEAwYCBgcDCQcFAQABAgMEEQAFEiEGMUETIlFhcYEykQcUUqGxwSNCYnKCktEz4fAVNENzorKz0vEWJFN0k5TCJWNkg6NE/8QAGwEAAQUBAQAAAAAAAAAAAAAAAwABAgQFBgf/xABAEQABAwIDAwoFAwIFAwUAAAABAAIDBBESITEFQVETImFxgZGhscHwBhQy0eEzQvE0UiMkYnKyFcLSFkOCkqL/2gAMAwEAAhEDEQA/ALP0iceTSzSU1NI0cUZKMyHS0jA2bvDcICLbc7E7ggY06emAaHOGZWjBAAA5wzSErEm5Nz1J/ri0VaRKhTrgLk5KKIcCKQWSDDBOtsurCvcCrf03wnNBzTkKHMInVrsLXxJpG5SaRZbfWBJYMVSw5gc8NbDonGSt5a8ek2uWtz6DA33uim56lTlOx9MSCsK3l690YG85oL9U0ZQg0nle1wSbW/rgJVSW4IW0kzXJvz54ZOGiyv8AYiU2ZWY6e7p9BzPhh72Ve+DTLNT1E7tCysVBFhp6kC29/bC3qDY2tkDhfrVKWhcKpY31Dbe5GHujNkaS",
+        enlace: "https://cuty.io/YouTubeLife",
+        categoria:  ["Premium", "Juegos"]
     }
 ];
 
