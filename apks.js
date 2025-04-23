@@ -37,13 +37,13 @@ const apks = [
     },
     {
         nombre: "Incredibox",
-        imagen: "https://tse4.mm.bing.net/th?id=OIP.ydzwj7k3t-VB53BVEEwn7wAAAA&pid=Api&P=0&h=180",
+        imagen: "https://image.winudf.com/v2/image1/Y29tLnNvZmFyc29nb29kLmluY3JlZGlib3guY25fMTY2Mjg3NDUwOV8wNDA/icon.png?w=100&fakeurl=1",
         enlace: "https://cuty.io/12Incredibox",
         categoria: ["Juegos", "Premium"]
     },
     {
         nombre: "Youtube Life",
-        imagen: "is7tCysVBFhp6kC29/bC3qDY2tkDhfrVKWhcKpY31Dbe5GHujNkaS",
+        imagen: "https://tse4.mm.bing.net/th?id=OIP.ydzwj7k3t-VB53BVEEwn7wAAAA&pid=Api&P=0&h=180",
         enlace: "https://cuty.io/YouTubeLife",
         categoria:  ["Premium", "Juegos"]
     }
