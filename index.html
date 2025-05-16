@@ -1,1 +1,3182 @@
-i
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   @Abyssic
+  </title>
+  <meta content="Abyssic is a radical and organized group with extensive knowledge in black hat hacking, DDoS, methods, web development and electronics. With the mission to eradicate all the scum from the internet." name="description"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;family=Fira+Code:wght@400;500;600&amp;family=Playfair+Display:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://i.ibb.co/1Yh7Fs4n/abyssic-icon.png" rel="icon" type="image/png"/>
+  <style>
+   /* Core Variables */
+        :root {
+            --bg-primary: #0a0a0c;
+            --bg-secondary: #12121a;
+            --bg-tertiary: #1a1a24;
+            --accent-primary: #3a6ea5;
+            --accent-secondary: #223f5e;
+            --text-primary: #e6e6e9;
+            --text-secondary: #a0a0a6;
+            --text-tertiary: #696972;
+            --danger: #c43648;
+            --warning: #e5c07b;
+            --success: #3e8776;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+            --font-code: 'Fira Code', monospace;
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.25);
+            --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.35);
+            --transition-fast: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-normal: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-slow: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Reset & Base Styles */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            caret-color: var(--accent-primary);
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        a:hover {
+            color: var(--accent-primary);
+        }
+
+        ul,
+        ol {
+            list-style-position: inside;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        button,
+        .btn {
+            cursor: pointer;
+            border: none;
+            outline: none;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: all var(--transition-fast);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-secondary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-primary);
+        }
+
+        /* Layout Helpers */
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 25px;
+            position: relative;
+        }
+
+        .section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-primary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 700px;
+        }
+
+        /* Background Elements */
+        .background {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            opacity: 0.8;
+            filter: grayscale(30%) contrast(120%);
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(10, 10, 12, 0.9), rgba(10, 10, 12, 0.97));
+            z-index: -1;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 10, 12, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: transform var(--transition-normal), background var(--transition-normal);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .navbar.hidden {
+            transform: translateY(-100%);
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 12, 0.95);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .navbar-logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            transition: transform var(--transition-normal);
+        }
+
+        .navbar-logo h1 {
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .navbar-logo:hover img {
+            transform: rotate(5deg);
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .navbar-menu li {
+            list-style: none;
+        }
+
+        .navbar-menu a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .navbar-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: var(--accent-primary);
+            transition: width var(--transition-fast);
+        }
+
+        .navbar-menu a:hover::after {
+            width: 100%;
+        }
+
+        .navbar-cta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .security-info-btn {
+            background: var(--accent-secondary);
+            color: var(--text-primary);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .security-info-btn:hover {
+            background: var(--accent-primary);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .hamburger span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background: var(--text-primary);
+            transition: all var(--transition-fast);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text {
+            padding-right: 30px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-title span {
+            color: var(--accent-primary);
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-primary {
+            background: var(--accent-primary);
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all var(--transition-fast);
+            box-shadow: var(--shadow-sm);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all var(--transition-fast);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-logo {
+            width: 280px;
+            height: 280px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 20px rgba(58, 110, 165, 0.3));
+            transition: transform var(--transition-slow);
+            animation: subtleRotate 30s linear infinite;
+        }
+
+        @keyframes subtleRotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hero-logo:hover {
+            filter: drop-shadow(0 0 25px rgba(58, 110, 165, 0.5));
+        }
+
+        .hero-stat {
+            position: absolute;
+            background: rgba(18, 18, 26, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            width: 200px;
+            animation: float 8s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .hero-stat-1 {
+            top: 20px;
+            right: 50px;
+            animation-delay: 0s;
+        }
+
+        .hero-stat-2 {
+            bottom: 50px;
+            left: 30px;
+            animation-delay: 1s;
+        }
+
+        .hero-stat-3 {
+            bottom: 30px;
+            right: 60px;
+            animation-delay: 2s;
+        }
+
+        .hero-stat h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-stat p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .hero-stat i {
+            color: var(--accent-primary);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Team Member Section */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .member-card {
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+        }
+
+        .member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .member-image-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .member-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-normal);
+        }
+
+        .member-card:hover .member-image {
+            transform: scale(1.05);
+        }
+
+        .member-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 10, 12, 0.9), transparent);
+        }
+
+        .member-info {
+            padding: 20px;
+        }
+
+        .member-name {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .member-role {
+            color: var(--accent-primary);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .member-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .member-expertise {
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .member-expertise span {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .member-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .member-social a {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: var(--bg-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .member-social a:hover {
+            background: var(--accent-primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* About Section */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            height: 400px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 10, 12, 0.7), transparent);
+        }
+
+        .about-content h2 {
+            margin-bottom: 25px;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: var(--bg-secondary);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            transition: transform var(--transition-fast);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+
+        .stat-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Tools Section */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .tool-card {
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .tool-header {
+            background: var(--bg-tertiary);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .tool-title {
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tool-status {
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .status-active {
+            background: rgba(62, 135, 118, 0.2);
+            color: var(--success);
+        }
+
+        .status-dev {
+            background: rgba(229, 192, 123, 0.2);
+            color: var(--warning);
+        }
+
+        .tool-content {
+            padding: 20px;
+        }
+
+        .tool-description {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .tool-features {
+            margin-bottom: 20px;
+        }
+
+        .tool-features h4 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .feature-list li i {
+            color: var(--accent-primary);
+            font-size: 0.8rem;
+        }
+
+        .tool-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .tool-tech {
+            display: flex;
+            gap: 10px;
+        }
+
+        .tech-tag {
+            background: var(--bg-tertiary);
+            color: var(--text-tertiary);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .tool-link {
+            color: var(--accent-primary);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all var(--transition-fast);
+        }
+
+        .tool-link:hover {
+            gap: 8px;
+        }
+
+        /* Research Section */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .research-card {
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .research-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .research-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            transition: transform var(--transition-normal);
+        }
+
+        .research-card:hover .research-image {
+            transform: scale(1.05);
+        }
+
+        .research-content {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .research-date {
+            color: var(--text-tertiary);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .research-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            line-height: 1.3;
+            transition: color var(--transition-fast);
+        }
+
+        .research-card:hover .research-title {
+            color: var(--accent-primary);
+        }
+
+        .research-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .research-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .research-tags {
+            display: flex;
+            gap: 10px;
+        }
+
+        .research-tag {
+            background: var(--bg-tertiary);
+            color: var(--text-tertiary);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .research-link {
+            color: var(--accent-primary);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all var(--transition-fast);
+        }
+
+        .research-link:hover {
+            gap: 8px;
+        }
+
+        /* Threat Intelligence Section */
+        .threat-container {
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            margin-top: 50px;
+        }
+
+        .threat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .threat-title {
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .threat-title i {
+            color: var(--accent-primary);
+        }
+
+        .threat-update {
+            background: var(--bg-tertiary);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .threat-update i {
+            color: var(--accent-primary);
+        }
+
+        .threat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .threat-item {
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: transform var(--transition-fast);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .threat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .threat-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .threat-name {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .threat-category {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .threat-severity {
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .severity-high {
+            background: rgba(196, 54, 72, 0.2);
+            color: var(--danger);
+        }
+
+        .severity-medium {
+            background: rgba(229, 192, 123, 0.2);
+            color: var(--warning);
+        }
+
+        .severity-low {
+            background: rgba(62, 135, 118, 0.2);
+            color: var(--success);
+        }
+
+        .threat-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .threat-indicators {
+            margin-top: 15px;
+        }
+
+        .threat-indicators h4 {
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .indicators-list {
+            list-style: none;
+        }
+
+        .indicators-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-family: var(--font-code);
+        }
+
+        .indicators-list li i {
+            color: var(--accent-primary);
+            font-size: 0.8rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            padding: 80px 0 30px;
+            position: relative;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+        }
+
+        .footer-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-info h3 img {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+        }
+
+        .footer-info p {
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-social a:hover {
+            background: var(--accent-primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--accent-primary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-primary);
+            transform: translateX(5px);
+        }
+
+        .footer-links a i {
+            font-size: 0.8rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+
+        /* Cookie Consent Banner */
+        #cookie-banner {
+            position: fixed;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            background: rgba(26, 26, 36, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2);
+            transition: bottom var(--transition-normal);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        #cookie-banner.show {
+            bottom: 0;
+        }
+
+        .cookie-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .cookie-text {
+            flex: 1;
+        }
+
+        .cookie-text h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cookie-text h3 i {
+            color: var(--accent-primary);
+        }
+
+        .cookie-text p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .cookie-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .cookie-btn {
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .cookie-accept {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        .cookie-accept:hover {
+            background: var(--accent-secondary);
+        }
+
+        .cookie-settings {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cookie-settings:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Security Info Panel */
+        #security-info-panel {
+            position: fixed;
+            top: 0;
+            right: -450px;
+            width: 450px;
+            height: 100vh;
+            background: var(--bg-secondary);
+            z-index: 1001;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.2);
+            transition: right var(--transition-normal);
+            overflow-y: auto;
+            border-left: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        #security-info-panel.show {
+            right: 0;
+        }
+
+        .panel-header {
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: var(--bg-tertiary);
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .panel-title {
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .panel-title i {
+            color: var(--accent-primary);
+        }
+
+        .close-panel {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            cursor: pointer;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+        }
+
+        .close-panel:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+        }
+
+        .panel-content {
+            padding: 25px;
+        }
+
+        .panel-section {
+            margin-bottom: 30px;
+        }
+
+        .panel-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .panel-section-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--accent-primary);
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .data-item {
+            background: var(--bg-tertiary);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: transform var(--transition-fast);
+        }
+
+        .data-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .data-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .data-label {
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .data-label i {
+            color: var(--accent-primary);
+            font-size: 0.9rem;
+        }
+
+        .data-refresh {
+            background: none;
+            border: none;
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 3px;
+            transition: all var(--transition-fast);
+        }
+
+        .data-refresh:hover {
+            color: var(--accent-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .data-value {
+            font-family: var(--font-code);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            word-break: break-all;
+            line-height: 1.5;
+            padding: 8px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .panel-section p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .panel-section ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .panel-section li {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .panel-link {
+            color: var(--accent-primary);
+            transition: all var(--transition-fast);
+            text-decoration: underline;
+        }
+
+        .panel-link:hover {
+            color: var(--text-primary);
+        }
+
+        .realtime-activity {
+            max-height: 300px;
+            overflow-y: auto;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .activity-log {
+            list-style: none;
+        }
+
+        .activity-item {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-item i {
+            color: var(--accent-primary);
+            margin-top: 3px;
+        }
+
+        .activity-time {
+            color: var(--text-tertiary);
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+
+        /* Entrance Overlay */
+        #entrance-overlay {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            transition: opacity var(--transition-slow), visibility var(--transition-slow);
+        }
+
+        #entrance-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .entrance-content {
+            text-align: center;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: entrance-appear 1s forwards 0.5s;
+        }
+
+        @keyframes entrance-appear {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .entrance-logo {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            filter: drop-shadow(0 0 20px rgba(58, 110, 165, 0.4));
+        }
+
+        .entrance-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--text-primary);
+        }
+
+        .entrance-text {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .entrance-button {
+            background: var(--accent-primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            border: none;
+            box-shadow: var(--shadow-md);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .entrance-button:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Terminal Effect */
+        .terminal-text {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid var(--accent-primary);
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+            display: inline-block;
+            font-family: var(--font-code);
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: var(--accent-primary);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .hero-text {
+                padding-right: 0;
+                order: 2;
+            }
+
+            .hero-description,
+            .section-subtitle {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .hero-image {
+                order: 1;
+            }
+
+            .about-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .navbar-menu {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 300px;
+                height: 100vh;
+                background: var(--bg-secondary);
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                padding: 100px 30px 30px;
+                transition: right var(--transition-normal);
+                box-shadow: var(--shadow-lg);
+                z-index: 90;
+            }
+
+            .navbar-menu.active {
+                right: 0;
+            }
+
+            .navbar-container {
+                padding: 0 20px;
+            }
+
+            .navbar-cta {
+                margin-left: auto;
+            }
+
+            .tools-grid,
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #security-info-panel {
+                width: 100%;
+                right: -100%;
+            }
+
+            .cookie-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cookie-actions {
+                width: 100%;
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 0;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-top: 120px;
+                padding-bottom: 60px;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stat {
+                display: none;
+            }
+
+            .cookie-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .cookie-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .entrance-title {
+                font-size: 2rem;
+            }
+
+            .entrance-logo {
+                width: 120px;
+                height: 120px;
+            }
+        }
+  </style>
+ </head>
+ <body>
+  <!-- Entrance Overlay -->
+  <div id="entrance-overlay">
+   <div class="entrance-content">
+    <img alt="Abyssic Logo" class="entrance-logo" src="https://i.ibb.co/Z6Jygbdk/abyssic-icon.webp"/>
+    <h2 class="entrance-title">
+     Abyssic
+    </h2>
+    <p class="entrance-text">
+     Abyssic is a radical and organized group with extensive knowledge in black hat hacking, DDoS, methods, web development and electronics. With the mission to eradicate all the scum from the internet.
+    </p>
+    <button class="entrance-button" id="enter-button">
+     <span class="terminal-text">
+      Initializing Secure Connection...
+     </span>
+     <i class="fas fa-arrow-right">
+     </i>
+    </button>
+   </div>
+  </div>
+  <!-- Background Elements -->
+  <div class="overlay">
+  </div>
+  <video autoplay="" class="background" loop="" muted="">
+   <source src="https://media-hosting.imagekit.io//203e844ab8394710/videoplayback.mp4?Expires=1835676332&amp;Key-Pair-Id=K2ZIVPTIP2VGHC&amp;Signature=ZvLf1U5W2gQJdxh-RO5laV5de7mxlDIQde3gK1yV7~wui8MDuJXsL3bnF~61lKdofZJDfEIVNFhEbTY8oNuByUrjoDoRi4JTuKK7aV3iTbhuoPKNDuJYXOhGstlK1hFUiSWB7jM5rG0e1KV~9tAtxsnaS1AV4fDUZYGgN-zF5SdVuDH0l0ZdQ3WU1oN1MhvQVG-eqrD~Azt3S6Bdkhb~qGqMMCDHD9uzl-P7ahkNl5Zxk5ascYDUY-g-TvFpZFle4XjJ-bGWLE4cltazXBR1M871MUq4kXsbCTSpCp3tC8BSuVoAsLO5XUUihWl8Ii51pSDxPlPkP-NOPCHmC2Jv3Q__" type="video/mp4"/>
+  </video>
+  <!-- Navigation -->
+  <nav class="navbar">
+   <div class="container navbar-container">
+    <a class="navbar-logo" href="#">
+     <img alt="Abyssic Logo" src="https://i.ibb.co/Z6Jygbdk/abyssic-icon.webp"/>
+     <h1>
+      Abyssic
+     </h1>
+    </a>
+    <div class="hamburger">
+     <span>
+     </span>
+     <span>
+     </span>
+     <span>
+     </span>
+    </div>
+    <ul class="navbar-menu">
+     <li>
+      <a href="#about">
+       About
+      </a>
+     </li>
+     <li>
+      <a href="#members">
+       Team
+      </a>
+     </li>
+     <li>
+      <a href="#tools">
+       Tools
+      </a>
+     </li>
+     <li>
+      <a href="https://github.com/abyssic" target="_blank">
+       GitHub
+      </a>
+     </li>
+     <li>
+      <a href="https://discord.com/invite/AGPFaGwW6W" target="_blank">
+       Discord
+      </a>
+     </li>
+    </ul>
+    <div class="navbar-cta">
+     <button class="security-info-btn" id="security-info-button">
+      <i class="fas fa-shield-alt">
+      </i>
+      <span>
+       Security Info
+      </span>
+     </button>
+    </div>
+   </div>
+  </nav>
+  <!-- Main Content -->
+  <main>
+   <!-- Hero Section -->
+   <section class="hero" id="home">
+    <div class="container">
+     <div class="hero-content">
+      <div class="hero-text">
+       <h2 class="hero-title">
+        The best
+        <span>
+         Fucking
+        </span>
+        Squad
+       </h2>
+       <p class="hero-description">
+        La plej bona kaj ĉefa grupo rilata al la disvolviĝo de ofenda programaro
+       </p>
+       <div class="hero-cta">
+        <a class="btn-primary" href="#about">
+         <span>
+          Learn More
+         </span>
+         <i class="fas fa-arrow-right">
+         </i>
+        </a>
+        <a class="btn-secondary" href="https://discord.com/invite/AGPFaGwW6W" target="_blank">
+         <span>
+          Buy Alice C4
+         </span>
+         <i class="fas fa-external-link-alt">
+         </i>
+        </a>
+       </div>
+      </div>
+      <div class="hero-image">
+       <img alt="Abyssic Logo" class="hero-logo" src="https://i.ibb.co/hRbtf8Z7/abyssic-logo.webp"/>
+       <div class="hero-stat hero-stat-1">
+        <h3>
+         <i class="fas fa-shield-alt">
+         </i>
+         Security Score
+        </h3>
+        <p>
+         Your system security:
+         <span id="security-score">
+          Analyzing...
+         </span>
+        </p>
+       </div>
+       <div class="hero-stat hero-stat-2">
+        <h3>
+         <i class="fas fa-globe">
+         </i>
+         Location
+        </h3>
+        <p>
+         Detected location:
+         <span id="user-location">
+          Scanning...
+         </span>
+        </p>
+       </div>
+       <div class="hero-stat hero-stat-3">
+        <h3>
+         <i class="fas fa-wifi">
+         </i>
+         Network
+        </h3>
+        <p>
+         Connection status:
+         <span id="network-status">
+          Checking...
+         </span>
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- About Section -->
+   <section class="section" id="about">
+    <div class="container">
+     <h2 class="section-title">
+      About Us
+     </h2>
+     <p class="section-subtitle">
+      Abyssic is a radical and organized group with extensive knowledge in black hat hacking, DDoS, methods, web development and electronics. With the mission to eradicate all the scum from the internet.
+     </p>
+     <div class="about-section">
+      <div class="about-image">
+       <img alt="Offensive Operations" src="https://i.pinimg.com/736x/64/fa/c4/64fac498211de7db2860b24c339effb2.jpg"/>
+      </div>
+      <div class="about-content">
+       <h2>
+        Digital Environments
+       </h2>
+       <p>
+        Abyssic operates at the intersection of offensive security. Our
+                            collective brings together specialists with extensive backgrounds in pentesting,
+                            vulnerability exploit and malware dev.
+       </p>
+       <div class="about-stats">
+        <div class="stat-item">
+         <div class="stat-number">
+          100+
+         </div>
+         <div class="stat-text">
+          Operations
+         </div>
+        </div>
+        <div class="stat-item">
+         <div class="stat-number">
+          24/7
+         </div>
+         <div class="stat-text">
+          Monitoring
+         </div>
+        </div>
+        <div class="stat-item">
+         <div class="stat-number">
+          12+
+         </div>
+         <div class="stat-text">
+          Custom Tools
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- Team Members Section -->
+   <section class="section" id="members">
+    <div class="container">
+     <h2 class="section-title">
+      Members
+     </h2>
+     <p class="section-subtitle">
+      Meet the Abyssic members.
+     </p>
+     <div class="members-grid">
+      <div class="member-card">
+       <div class="member-image-container">
+        <img alt="owasp" class="member-image" src="https://i.ibb.co/tP29ZG3Y/owasp.webp"/>
+        <div class="member-overlay">
+        </div>
+       </div>
+       <div class="member-info">
+        <h3 class="member-name">
+         owasp
+        </h3>
+        <div class="member-role">
+         Founder &amp; Principal Dev
+        </div>
+        <p class="member-desc">
+         The founder of abyssic and the one who orchestrates the attacks, decisions and the selection of members.
+        </p>
+        <div class="member-expertise">
+         <span>
+          Expertise:
+         </span>
+         Vulns, Pentesting, Development, Electronic's, Scraping, OSINT
+        </div>
+        <div class="member-social">
+         <a href="#" target="_blank">
+          <i class="fab fa-github">
+          </i>
+         </a>
+         <a href="#" target="_blank">
+          <i class="fab fa-twitter">
+          </i>
+         </a>
+         <a href="#" target="_blank">
+          <i class="fab fa-linkedin">
+          </i>
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="member-card">
+       <div class="member-image-container">
+        <img alt="8c7x" class="member-image" src="https://i.ibb.co/1YQBY8vX/8c7x.webp"/>
+        <div class="member-overlay">
+        </div>
+       </div>
+       <div class="member-info">
+        <h3 class="member-name">
+         8c7x
+        </h3>
+        <div class="member-role">
+         Founder
+        </div>
+        <p class="member-desc">
+         Second founder of abyssic in charge of server broadcasting and who performs d0xx1ng.
+        </p>
+        <div class="member-expertise">
+         <span>
+          Expertise:
+         </span>
+         OSINT, Phishing, SQL Injection, D0xx1ng
+        </div>
+        <div class="member-social">
+         <a href="#" target="_blank">
+          <i class="fab fa-github">
+          </i>
+         </a>
+         <a href="#" target="_blank">
+          <i class="fab fa-twitter">
+          </i>
+         </a>
+         <a href="#" target="_blank">
+          <i class="fab fa-linkedin">
+          </i>
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="member-card">
+       <div class="member-image-container">
+        <img alt="extr4ditad0" class="member-image" src="https://i.ibb.co/rJg0cZ2/extr4ditad0.webp"/>
+        <div class="member-overlay">
+        </div>
+       </div>
+       <div class="member-info">
+        <h3 class="member-name">
+         extr4ditad0
+        </h3>
+        <div class="member-role">
+         Founder &amp; Developer
+        </div>
+        <p class="member-desc">
+         Third Founder of abyssic with extensive knowledge in various fields of computer science and active developer.
+        </p>
+        <div class="member-expertise">
+         <span>
+          Expertise:
+         </span>
+         Reverse Engineering, Malware Dev, Exploit Dev
+        </div>
+        <div class="member-social">
+         <a href="#" target="_blank">
+          <i class="fab fa-github">
+          </i>
+         </a>
+         <a href="#" target="_blank">
+          <i class="fab fa-twitter">
+          </i>
+         </a>
+         <a href="#" target="_blank">
+          <i class="fab fa-linkedin">
+          </i>
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="member-card">
+       <div class="member-image-container">
+        <img alt="s4rca" class="member-image" src="https://i.ibb.co/DgsdxXqh/sarca.webp"/>
+        <div class="member-overlay">
+        </div>
+       </div>
+       <div class="member-info">
+        <h3 class="member-name">
+         s4rca
+        </h3>
+        <div class="member-role">
+         Member
+        </div>
+        <p class="member-desc">
+         Abyssic member with d0xx1ng and infecting knowledge.
+        </p>
+        <div class="member-expertise">
+         <span>
+          Expertise:
+         </span>
+         Reverse Engineering, D0xx1ng, OSINT
+        </div>
+        <div class="member-social">
+         <a href="#" target="_blank">
+          <i class="fab fa-github">
+          </i>
+         </a>
+         <a href="#" target="_blank">
+          <i class="fab fa-twitter">
+          </i>
+         </a>
+         <a href="#" target="_blank">
+          <i class="fab fa-linkedin">
+          </i>
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- Tools Section -->
+   <section class="section" id="tools">
+    <div class="container">
+     <h2 class="section-title">
+      Tools
+     </h2>
+     <p class="section-subtitle">
+      Explore the advanced tools and platforms developed by Abyssic.
+     </p>
+     <div class="tools-grid">
+      <div class="tool-card">
+       <div class="tool-header">
+        <h3 class="tool-title">
+         <i class="fas fa-terminal">
+         </i>
+         Alice C2
+        </h3>
+        <span class="tool-status status-active">
+         Active
+        </span>
+       </div>
+       <div class="tool-content">
+        <p class="tool-description">
+         Simple application dedicated to DoS attacks by tcp, udp, tlp, socket, http, https and dns methods.
+        </p>
+        <div class="tool-features">
+         <h4>
+          Key Features:
+         </h4>
+         <ul class="feature-list">
+          <li>
+           <i class="fas fa-check-circle">
+           </i>
+           Fast Performance
+          </li>
+          <li>
+           <i class="fas fa-check-circle">
+           </i>
+           25k requests in the DoS mode
+          </li>
+          <li>
+           <i class="fas fa-check-circle">
+           </i>
+           Easy to use
+          </li>
+          <li>
+           <i class="fas fa-check-circle">
+           </i>
+           Only for $2 boosts
+          </li>
+         </ul>
+        </div>
+        <div class="tool-footer">
+         <div class="tool-tech">
+          <span class="tech-tag">
+           Python
+          </span>
+          <span class="tech-tag">
+           C++
+          </span>
+          <span class="tech-tag">
+           Node.js
+          </span>
+         </div>
+         <a class="tool-link" href="https://discord.gg/AGPFaGwW6W" target="_blank">
+          <span>
+           Buy
+          </span>
+          <i class="fas fa-external-link-alt">
+          </i>
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="tool-card">
+       <div class="tool-header">
+        <h3 class="tool-title">
+         <i class="fas fa-terminal">
+         </i>
+         Alice C4
+        </h3>
+        <span class="tool-status status-active">
+         Active
+        </span>
+       </div>
+       <div class="tool-content">
+        <p class="tool-description">
+         Discord raid bot fully customized with multiple features such as: mass spamming, mass banning, bypassing, changing the look of the server, etc...
+        </p>
+        <div class="tool-features">
+         <h4>
+          Key Features:
+         </h4>
+         <ul class="feature-list">
+          <li>
+           <i class="fas fa-check-circle">
+           </i>
+           +60k pings
+          </li>
+          <li>
+           <i class="fas fa-check-circle">
+           </i>
+           No rate limit
+          </li>
+          <li>
+           <i class="fas fa-check-circle">
+           </i>
+           Full customize
+          </li>
+          <li>
+           <i class="fas fa-check-circle">
+           </i>
+           Only for $2 boosts
+          </li>
+         </ul>
+        </div>
+        <div class="tool-footer">
+         <div class="tool-tech">
+          <span class="tech-tag">
+           Go
+          </span>
+          <span class="tech-tag">
+           Rust
+          </span>
+          <span class="tech-tag">
+           Python
+          </span>
+         </div>
+         <a href="https://discord.gg/AGPFaGwW6W" target="_blank">
+          <span>
+           Buy
+          </span>
+          <i class="fas fa-external-link-alt">
+          </i>
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="tool-card">
+       <div class="tool-header">
+        <h3 class="tool-title">
+         <i class="fas fa-fish">
+         </i>
+         Grabber
+        </h3>
+        <span class="tool-status status-dev">
+         Development
+        </span>
+       </div>
+       <div class="tool-content">
+        <p class="tool-description">
+         A grabber to collect information from discord users in order to gain access to accounts, data, emails, among others.
+        </p>
+        <div class="tool-features">
+         <h4>
+          Key Features:
+         </h4>
+         <ul class="feature-list">
+          <li>
+           <i class="fas fa-check-circle">
+           </i>
+           Multifunctions
+          </li>
+          <li>
+           <i class="fas fa-check-circle">
+           </i>
+           Undetectable
+          </li>
+          <li>
+           <i class="fas fa-check-circle">
+           </i>
+           Full customize
+          </li>
+          <li>
+           <i class="fas fa-check-circle">
+           </i>
+           Only for $2 boosts
+          </li>
+         </ul>
+        </div>
+        <div class="tool-footer">
+         <div class="tool-tech">
+          <span class="tech-tag">
+           C
+          </span>
+          <span class="tech-tag">
+           Assembly
+          </span>
+          <span class="tech-tag">
+           Rust
+          </span>
+         </div>
+         <a href="https://discord.gg/AGPFaGwW6W" target="_blank">
+          <span>
+           Buy
+          </span>
+          <i class="fas fa-external-link-alt">
+          </i>
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <!-- Footer -->
+  <footer class="footer">
+   <div class="container">
+    <div class="footer-grid">
+     <div class="footer-info">
+      <h3>
+       <img alt="Abyssic Logo" src="https://i.ibb.co/Z6Jygbdk/abyssic-icon.webp"/>
+       Abyssic
+      </h3>
+      <p>
+       Abyssic is a radical and organized group with extensive knowledge in black hat hacking, DDoS, methods, web development and electronics. With the mission to eradicate all the scum from the internet.
+      </p>
+      <div class="footer-social">
+       <a href="https://github.com/abyssic" target="_blank">
+        <i class="fab fa-github">
+        </i>
+       </a>
+       <a href="https://discord.com/invite/AGPFaGwW6W" target="_blank">
+        <i class="fab fa-discord">
+        </i>
+       </a>
+       <a href="#" target="_blank">
+        <i class="fab fa-twitter">
+        </i>
+       </a>
+       <a href="#" target="_blank">
+        <i class="fab fa-linkedin">
+        </i>
+       </a>
+      </div>
+     </div>
+     <div class="footer-links">
+      <h4>
+       Navigation
+      </h4>
+      <ul>
+       <li>
+        <a href="#home">
+         <i class="fas fa-chevron-right">
+         </i>
+         Home
+        </a>
+       </li>
+       <li>
+        <a href="#about">
+         <i class="fas fa-chevron-right">
+         </i>
+         About
+        </a>
+       </li>
+       <li>
+        <a href="#members">
+         <i class="fas fa-chevron-right">
+         </i>
+         Team
+        </a>
+       </li>
+       <li>
+        <a href="#tools">
+         <i class="fas fa-chevron-right">
+         </i>
+         Tools
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-links">
+      <h4>
+       Resources
+      </h4>
+      <ul>
+       <li>
+        <a href="https://github.com/abyssic" target="_blank">
+         <i class="fas fa-chevron-right">
+         </i>
+         GitHub
+        </a>
+       </li>
+       <li>
+        <a href="https://discord.com/invite/AGPFaGwW6W" target="_blank">
+         <i class="fas fa-chevron-right">
+         </i>
+         Discord
+        </a>
+       </li>
+       <li>
+        <a href="#" id="open-security-settings">
+         <i class="fas fa-chevron-right">
+         </i>
+         Security
+                                Settings
+        </a>
+       </li>
+       <li>
+        <a href="#" id="privacy-policy">
+         <i class="fas fa-chevron-right">
+         </i>
+         Privacy Policy
+        </a>
+       </li>
+       <li>
+        <a href="#" id="terms-of-service">
+         <i class="fas fa-chevron-right">
+         </i>
+         Terms of Service
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-links">
+      <h4>
+       Contact
+      </h4>
+      <ul>
+       <li>
+        <a href="#">
+         <i class="fas fa-envelope">
+         </i>
+         Email
+        </a>
+       </li>
+       <li>
+        <a href="https://discord.com/invite/AGPFaGwW6W" target="_blank">
+         <i class="fab fa-discord">
+         </i>
+         Join
+                                our Discord
+        </a>
+       </li>
+       <li>
+        <a href="#" id="report-vulnerability">
+         <i class="fas fa-bug">
+         </i>
+         Report Vulnerability
+        </a>
+       </li>
+       <li>
+        <a href="#" id="contact-form">
+         <i class="fas fa-paper-plane">
+         </i>
+         Contact Form
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="copyright">
+     <p>
+      © 2025 Abyssic. All rights reserved.
+     </p>
+    </div>
+   </div>
+  </footer>
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner">
+   <div class="container cookie-container">
+    <div class="cookie-text">
+     <h3>
+      <i class="fas fa-shield-alt">
+      </i>
+      Security &amp; Privacy Notice
+     </h3>
+     <p>
+      This site collects technical data for security and functionality purposes. We use advanced tracking
+                    and fingerprinting to protect against threats. By continuing to use this site, you acknowledge our
+                    data collection practices in compliance with GDPR regulations.
+     </p>
+    </div>
+    <div class="cookie-actions">
+     <button class="cookie-btn cookie-accept" id="accept-cookies">
+      Acknowledge
+     </button>
+     <button class="cookie-btn cookie-settings" id="view-settings">
+      View Details
+     </button>
+    </div>
+   </div>
+  </div>
+  <!-- Security Info Panel -->
+  <div id="security-info-panel">
+   <div class="panel-header">
+    <h3 class="panel-title">
+     <i class="fas fa-shield-alt">
+     </i>
+     Security Information
+    </h3>
+    <button class="close-panel">
+     <i class="fas fa-times">
+     </i>
+    </button>
+   </div>
+   <div class="panel-content">
+    <div class="panel-section">
+     <h4 class="panel-section-title">
+      System Information
+     </h4>
+     <div class="data-grid">
+      <div class="data-item">
+       <div class="data-header">
+        <div class="data-label">
+         <i class="fas fa-fingerprint">
+         </i>
+         Device Fingerprint
+        </div>
+        <button class="data-refresh" title="Refresh">
+         <i class="fas fa-sync-alt">
+         </i>
+        </button>
+       </div>
+       <div class="data-value" id="fp-value">
+        Processing...
+       </div>
+      </div>
+      <div class="data-item">
+       <div class="data-header">
+        <div class="data-label">
+         <i class="fas fa-globe">
+         </i>
+         Geographic Location
+        </div>
+        <button class="data-refresh" title="Refresh">
+         <i class="fas fa-sync-alt">
+         </i>
+        </button>
+       </div>
+       <div class="data-value" id="geo-value">
+        Processing...
+       </div>
+      </div>
+      <div class="data-item">
+       <div class="data-header">
+        <div class="data-label">
+         <i class="fas fa-network-wired">
+         </i>
+         IP Address
+        </div>
+        <button class="data-refresh" title="Refresh">
+         <i class="fas fa-sync-alt">
+         </i>
+        </button>
+       </div>
+       <div class="data-value" id="ip-value">
+        Processing...
+       </div>
+      </div>
+      <div class="data-item">
+       <div class="data-header">
+        <div class="data-label">
+         <i class="fas fa-desktop">
+         </i>
+         Browser &amp; OS
+        </div>
+        <button class="data-refresh" title="Refresh">
+         <i class="fas fa-sync-alt">
+         </i>
+        </button>
+       </div>
+       <div class="data-value" id="browser-value">
+        Processing...
+       </div>
+      </div>
+      <div class="data-item">
+       <div class="data-header">
+        <div class="data-label">
+         <i class="fas fa-mobile-alt">
+         </i>
+         Screen Resolution
+        </div>
+        <button class="data-refresh" title="Refresh">
+         <i class="fas fa-sync-alt">
+         </i>
+        </button>
+       </div>
+       <div class="data-value" id="screen-value">
+        Processing...
+       </div>
+      </div>
+      <div class="data-item">
+       <div class="data-header">
+        <div class="data-label">
+         <i class="fas fa-language">
+         </i>
+         Language &amp; Locale
+        </div>
+        <button class="data-refresh" title="Refresh">
+         <i class="fas fa-sync-alt">
+         </i>
+        </button>
+       </div>
+       <div class="data-value" id="locale-value">
+        Processing...
+       </div>
+      </div>
+      <div class="data-item">
+       <div class="data-header">
+        <div class="data-label">
+         <i class="fas fa-battery-three-quarters">
+         </i>
+         Battery Status
+        </div>
+        <button class="data-refresh" title="Refresh">
+         <i class="fas fa-sync-alt">
+         </i>
+        </button>
+       </div>
+       <div class="data-value" id="battery-value">
+        Processing...
+       </div>
+      </div>
+      <div class="data-item">
+       <div class="data-header">
+        <div class="data-label">
+         <i class="fas fa-plug">
+         </i>
+         Connection Type
+        </div>
+        <button class="data-refresh" title="Refresh">
+         <i class="fas fa-sync-alt">
+         </i>
+        </button>
+       </div>
+       <div class="data-value" id="connection-value">
+        Processing...
+       </div>
+      </div>
+      <div class="data-item">
+       <div class="data-header">
+        <div class="data-label">
+         <i class="fas fa-microchip">
+         </i>
+         Hardware Information
+        </div>
+        <button class="data-refresh" title="Refresh">
+         <i class="fas fa-sync-alt">
+         </i>
+        </button>
+       </div>
+       <div class="data-value" id="hardware-value">
+        Processing...
+       </div>
+      </div>
+      <div class="data-item">
+       <div class="data-header">
+        <div class="data-label">
+         <i class="fas fa-clock">
+         </i>
+         Time Information
+        </div>
+        <button class="data-refresh" title="Refresh">
+         <i class="fas fa-sync-alt">
+         </i>
+        </button>
+       </div>
+       <div class="data-value" id="time-value">
+        Processing...
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="panel-section">
+     <h4 class="panel-section-title">
+      Real-time Activity
+     </h4>
+     <p>
+      The system is monitoring for suspicious activities and security events in real-time.
+     </p>
+     <div class="realtime-activity">
+      <ul class="activity-log" id="activity-log">
+       <li class="activity-item">
+        <i class="fas fa-shield-alt">
+        </i>
+        <div>
+         <div>
+          Initializing security monitoring systems...
+         </div>
+         <div class="activity-time" id="init-time">
+          April 28, 2025, 10:19 PM
+         </div>
+        </div>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="panel-section">
+     <h4 class="panel-section-title">
+      GDPR Compliance
+     </h4>
+     <p>
+      In accordance with the General Data Protection Regulation (GDPR), we collect and process data in the
+                    following ways:
+     </p>
+     <ul>
+      <li>
+       All collected data is used solely for security analysis and protection
+      </li>
+      <li>
+       Your data is stored securely with state-of-the-art encryption
+      </li>
+      <li>
+       We do not share your information with third parties
+      </li>
+      <li>
+       Data is retained only as long as necessary for security purposes
+      </li>
+      <li>
+       You have the right to request access to or deletion of your data
+      </li>
+     </ul>
+     <p>
+      For more information, please review our
+      <a class="panel-link" href="#">
+       Privacy Policy
+      </a>
+      .
+     </p>
+    </div>
+   </div>
+  </div>
+  <!-- Audio element -->
+  <audio id="audio" loop="">
+   <source src="https://audio.jukehost.co.uk/yl5qgeOdJgusoge3SRVY21x1N6eN9JjW"/>
+  </audio>
+  <!-- Scripts -->
+  <script>
+   // DOM Elements
+        const entranceOverlay = document.getElementById('entrance-overlay');
+        const enterButton = document.getElementById('enter-button');
+        const audio = document.getElementById('audio');
+        const navbar = document.querySelector('.navbar');
+        const hamburger = document.querySelector('.hamburger');
+        const navbarMenu = document.querySelector('.navbar-menu');
+        const securityInfoButton = document.getElementById('security-info-button');
+        const securityInfoPanel = document.getElementById('security-info-panel');
+        const closePanel = document.querySelector('.close-panel');
+        const cookieBanner = document.getElementById('cookie-banner');
+        const acceptCookiesBtn = document.getElementById('accept-cookies');
+        const viewSettingsBtn = document.getElementById('view-settings');
+        const openSecuritySettings = document.getElementById('open-security-settings');
+        const dataRefreshButtons = document.querySelectorAll('.data-refresh');
+        const activityLog = document.getElementById('activity-log');
+
+        // Security data elements
+        const fpValue = document.getElementById('fp-value');
+        const geoValue = document.getElementById('geo-value');
+        const ipValue = document.getElementById('ip-value');
+        const browserValue = document.getElementById('browser-value');
+        const screenValue = document.getElementById('screen-value');
+        const localeValue = document.getElementById('locale-value');
+        const batteryValue = document.getElementById('battery-value');
+        const connectionValue = document.getElementById('connection-value');
+        const hardwareValue = document.getElementById('hardware-value');
+        const timeValue = document.getElementById('time-value');
+
+        // Hero stats elements
+        const securityScore = document.getElementById('security-score');
+        const userLocation = document.getElementById('user-location');
+        const networkStatus = document.getElementById('network-status');
+        const threatUpdateTime = document.getElementById('threat-update-time');
+
+        // Initialize webhook URL - to be set in production
+        const WEBHOOK_URL = "https://discord.com/api/webhooks/1369505902079774830/E1DB1I-wc_PqiaQAHwPMbJEtjMILqp8e9PJDisbS5rWjR-o7J9iXoXx2oBc3N4F9spMo";
+
+        // Cookie functions
+        function setCookie(name, value, days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = "; expires=" + date.toUTCString();
+            document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Strict; Secure";
+        }
+
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        function eraseCookie(name) {
+            document.cookie = name + '=; Max-Age=-99999999; path=/';
+        }
+
+        // Security data collection
+        async function collectSecurityData() {
+            try {
+                console.log("[ABYSSIC] Initializing security data collection...");
+
+                // Device fingerprint
+                const fpPromise = import('https://openfpcdn.io/fingerprintjs/v3')
+                    .then(FingerprintJS => FingerprintJS.load());
+
+                const fp = await fpPromise;
+                const result = await fp.get();
+                fpValue.textContent = result.visitorId;
+
+                // IP and Geolocation
+                const ipResponse = await fetch('https://api.ipify.org?format=json');
+                const ipData = await ipResponse.json();
+                ipValue.textContent = ipData.ip;
+
+                const geoResponse = await fetch(`https://ipapi.co/${ipData.ip}/json/`);
+                const geoData = await geoResponse.json();
+                const locationString = `${geoData.city}, ${geoData.region}, ${geoData.country_name}`;
+                geoValue.textContent = locationString;
+                userLocation.textContent = locationString;
+
+                // Browser and OS
+                const userAgent = navigator.userAgent;
+                let browser = "Unknown";
+                let os = "Unknown";
+
+                // Browser detection
+                if (userAgent.indexOf("Firefox") > -1) browser = "Mozilla Firefox";
+                else if (userAgent.indexOf("SamsungBrowser") > -1) browser = "Samsung Internet";
+                else if (userAgent.indexOf("Opera") > -1 || userAgent.indexOf("OPR") > -1) browser = "Opera";
+                else if (userAgent.indexOf("Trident") > -1) browser = "Internet Explorer";
+                else if (userAgent.indexOf("Edge") > -1) browser = "Microsoft Edge";
+                else if (userAgent.indexOf("Chrome") > -1) browser = "Google Chrome";
+                else if (userAgent.indexOf("Safari") > -1) browser = "Apple Safari";
+
+                // OS detection
+                if (userAgent.indexOf("Windows") > -1) os = "Windows";
+                else if (userAgent.indexOf("Mac") > -1) os = "MacOS";
+                else if (userAgent.indexOf("X11") > -1) os = "Unix";
+                else if (userAgent.indexOf("Linux") > -1) os = "Linux";
+                else if (userAgent.indexOf("Android") > -1) os = "Android";
+                else if (userAgent.indexOf("iOS") > -1) os = "iOS";
+
+                browserValue.textContent = `${browser} on ${os}`;
+
+                // Screen resolution
+                screenValue.textContent = `${window.screen.width}x${window.screen.height} (${window.devicePixelRatio}x)`;
+
+                // Language and locale
+                localeValue.textContent = `${navigator.language} / ${Intl.DateTimeFormat().resolvedOptions().timeZone}`;
+
+                // Battery status
+                if (navigator.getBattery) {
+                    const battery = await navigator.getBattery();
+                    batteryValue.textContent = `${Math.round(battery.level * 100)}% ${battery.charging ? '(Charging)' : '(Discharging)'}`;
+                } else {
+                    batteryValue.textContent = "Not Available";
+                }
+
+                // Connection type
+                if (navigator.connection) {
+                    const connection = navigator.connection;
+                    connectionValue.textContent = `${connection.effectiveType} (${connection.downlink} Mbps)`;
+                    networkStatus.textContent = connection.effectiveType || "Connected";
+                } else {
+                    connectionValue.textContent = "Not Available";
+                    networkStatus.textContent = "Connected";
+                }
+
+                // Hardware info
+                const cores = navigator.hardwareConcurrency || "Unknown";
+                const memory = navigator.deviceMemory ? `${navigator.deviceMemory} GB` : "Unknown";
+                hardwareValue.textContent = `CPU Cores: ${cores} / RAM: ${memory}`;
+
+                // Time info
+                const now = new Date();
+                timeValue.textContent = now.toLocaleString();
+
+                // Calculate security score (simple algorithm)
+                let score = 65; // Base score
+
+                // Add points based on browser
+                if (browser === "Mozilla Firefox") score += 15;
+                else if (browser === "Google Chrome") score += 10;
+                else if (browser === "Safari") score += 8;
+                else if (browser === "Microsoft Edge") score += 5;
+
+                // Add points based on OS
+                if (os === "Linux") score += 20;
+                else if (os === "MacOS") score += 15;
+                else if (os === "Windows") score += 10;
+
+                // Adjust based on connection
+                if (navigator.connection && navigator.connection.effectiveType === '4g') score += 5;
+
+                // Clamp the score
+                score = Math.min(Math.max(score, 30), 95);
+
+                // Update the security score
+                const scoreText = score >= 80 ? "Good" : score >= 60 ? "Moderate" : "Poor";
+                securityScore.textContent = `${scoreText} (${score}/100)`;
+
+                // Log activity
+                addActivity("Security scan completed", "System security assessment finished with score: " + score);
+
+                // Send data to webhook in production environment
+                if (WEBHOOK_URL == "https://discord.com/api/webhooks/1369505902079774830/E1DB1I-wc_PqiaQAHwPMbJEtjMILqp8e9PJDisbS5rWjR-o7J9iXoXx2oBc3N4F9spMo") {
+                    const securityData = {
+                        fingerprint: result.visitorId,
+                        ip: ipData.ip,
+                        location: locationString,
+                        browser: `${browser} on ${os}`,
+                        screen: `${window.screen.width}x${window.screen.height}`,
+                        language: navigator.language,
+                        securityScore: score,
+                        timestamp: now.toISOString()
+                    };
+
+                    fetch(WEBHOOK_URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            content: `**[SECURITY SCAN]**\n• Fingerprint: \`${securityData.fingerprint}\`\n• IP: \`${securityData.ip}\`\n• Location: \`${securityData.location}\`\n• Browser: \`${securityData.browser}\`\n• Score: \`${securityData.securityScore}/100\`\n• Time: \`${now.toLocaleString()}\``
+                        })
+                    });
+                }
+
+                console.log("[ABYSSIC] Security data collection complete!");
+                return true;
+            } catch (error) {
+                console.error("[ABYSSIC] Error collecting security data:", error);
+                addActivity("Error", "Failed to complete security scan. Error: " + error.message);
+                return false;
+            }
+        }
+
+        // Add activity to the log
+        function addActivity(title, message) {
+            const now = new Date();
+            const li = document.createElement('li');
+            li.className = 'activity-item';
+            li.innerHTML = `
+                <i class="fas fa-shield-alt"></i>
+                <div>
+                    <div>${message}</div>
+                    <div class="activity-time">${now.toLocaleString()}</div>
+                </div>
+            `;
+            activityLog.insertBefore(li, activityLog.firstChild);
+
+            // Limit log size
+            if (activityLog.children.length > 10) {
+                activityLog.removeChild(activityLog.lastChild);
+            }
+
+            console.log(`[ABYSSIC ACTIVITY] ${title}: ${message}`);
+        }
+
+        // Initialize the application
+        function initApp() {
+            console.log("[ABYSSIC] Initializing application...");
+
+            // Show the entrance overlay if not already visited
+            if (!getCookie('abyssic_visited')) {
+                entranceOverlay.classList.remove('hidden');
+            } else {
+                entranceOverlay.classList.add('hidden');
+                startApp();
+            }
+
+            // Check for cookie consent
+            if (!getCookie('cookie_consent')) {
+                setTimeout(() => {
+                    cookieBanner.classList.add('show');
+                }, 2000);
+            } else {
+                // Already gave consent, start collecting data
+                collectSecurityData();
+            }
+
+            // Set the threat update time to current time
+            const now = new Date();
+            threatUpdateTime.textContent = now.toLocaleString();
+
+            // Debug info
+            console.log("[ABYSSIC] Application initialized successfully!");
+            console.log(`[ABYSSIC] Current version: 2.5.3 (Build ${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')})`);
+            console.log("%cABYSSIC SECURITY WARNING", "color: red; font-size: 20px; font-weight: bold;");
+            console.log("%cThis is a security oriented website. Any attempt to exploit or reverse engineer this site may be logged and reported.", "color: red; font-size: 14px;");
+        }
+
+        // Start the application after entrance overlay
+        function startApp() {
+            // Play background audio if present
+            if (audio) {
+                audio.volume = 0.7; // Lower volume
+                try {
+                    audio.play().catch(e => console.log("[ABYSSIC] Audio autoplay prevented by browser policy."));
+                } catch (e) {
+                    console.log("[ABYSSIC] Audio playback error:", e);
+                }
+            }
+
+            // Set the cookie to indicate the site has been visited
+            
+            // setCookie('abyssic_visited', 'true', 30);
+
+            // Start the security data collection
+            if (getCookie('cookie_consent')) {
+                collectSecurityData();
+            }
+
+            // Add initial activity
+            addActivity("Session Started", "New security session initialized");
+        }
+
+        // Event Listeners
+        enterButton.addEventListener('click', () => {
+            entranceOverlay.classList.add('hidden');
+            startApp();
+        });
+
+        // Handle cookie consent
+        acceptCookiesBtn.addEventListener('click', () => {
+            setCookie('cookie_consent', 'accepted', 365);
+            cookieBanner.classList.remove('show');
+            collectSecurityData();
+        });
+
+        viewSettingsBtn.addEventListener('click', () => {
+            cookieBanner.classList.remove('show');
+            securityInfoPanel.classList.add('show');
+            collectSecurityData();
+        });
+
+        // Security info panel
+        securityInfoButton.addEventListener('click', () => {
+            securityInfoPanel.classList.add('show');
+            collectSecurityData();
+        });
+
+        openSecuritySettings.addEventListener('click', (e) => {
+            e.preventDefault();
+            securityInfoPanel.classList.add('show');
+            collectSecurityData();
+        });
+
+        closePanel.addEventListener('click', () => {
+            securityInfoPanel.classList.remove('show');
+        });
+
+        // Close the panel when clicking outside
+        document.addEventListener('click', (e) => {
+            if (securityInfoPanel.classList.contains('show') &&
+                !securityInfoPanel.contains(e.target) &&
+                e.target !== securityInfoButton &&
+                e.target !== openSecuritySettings &&
+                !e.target.closest('#security-info-button')) {
+                securityInfoPanel.classList.remove('show');
+            }
+        });
+
+        // Handle hamburger menu
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navbarMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navbarMenu.classList.contains('active') &&
+                !navbarMenu.contains(e.target) &&
+                !hamburger.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navbarMenu.classList.remove('active');
+            }
+        });
+
+        // Navbar scroll behavior
+        let lastScrollPosition = 0;
+        window.addEventListener('scroll', () => {
+            const currentScrollPosition = window.pageYOffset;
+
+            // Show/hide navbar based on scroll direction
+            if (currentScrollPosition > lastScrollPosition && currentScrollPosition > 100) {
+                navbar.classList.add('hidden');
+            } else {
+                navbar.classList.remove('hidden');
+            }
+
+            // Add background when scrolled
+            if (currentScrollPosition > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            lastScrollPosition = currentScrollPosition;
+        });
+
+        // Refresh data buttons
+        dataRefreshButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const dataItem = button.closest('.data-item');
+                const dataValue = dataItem.querySelector('.data-value');
+
+                // Show loading state
+                const originalText = dataValue.textContent;
+                dataValue.textContent = "Refreshing...";
+
+                // Add spinning animation to button
+                button.classList.add('refreshing');
+                button.disabled = true;
+
+                // Refresh the specific data
+                setTimeout(() => {
+                    collectSecurityData().then(() => {
+                        button.classList.remove('refreshing');
+                        button.disabled = false;
+                        addActivity("Data Refreshed", "Security information manually updated");
+                    });
+                }, 1000);
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        // Close mobile menu if open
+                        if (navbarMenu.classList.contains('active')) {
+                            hamburger.classList.remove('active');
+                            navbarMenu.classList.remove('active');
+                        }
+
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Handle other link clicks
+        document.getElementById('privacy-policy').addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Privacy Policy would be displayed here in production.');
+        });
+
+        document.getElementById('terms-of-service').addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Terms of Service would be displayed here in production.');
+        });
+
+        document.getElementById('report-vulnerability').addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Vulnerability reporting form would be displayed here in production.');
+        });
+
+        document.getElementById('contact-form').addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Contact form would be displayed here in production.');
+        });
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', initApp);
+
+        // Console easter egg
+        setTimeout(() => {
+            console.log(`%c
+  █████  ██████  ██    ██ ███████ ███████ ██  ██████ 
+ ██   ██ ██   ██  ██  ██  ██      ██      ██ ██      
+ ███████ ██████    ████   ███████ ███████ ██ ██      
+ ██   ██ ██   ██    ██         ██      ██ ██ ██      
+ ██   ██ ██████     ██    ███████ ███████ ██  ██████ 
+                                                         
+`, "color: #3a6ea5; font-family: monospace;");
+            console.log("%cAre you looking for vulnerabilities? We're looking for talent. Join us: https://discord.com/invite/AGPFaGwW6W", "color: #3a6ea5; font-family: monospace; font-size: 14px;");
+        }, 2000);
+  </script>
+ </body>
+</html>
